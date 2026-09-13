@@ -1,6 +1,6 @@
 # Frontend architecture
 
-Status: approved direction; runtime and routes below are planned, not implemented. Stage 2 creates governance only.
+Status: HS-003 implements the runtime composition and technical root/not-found routes. Product routes and screens remain planned under their feature tickets.
 
 ## Ownership and stack
 

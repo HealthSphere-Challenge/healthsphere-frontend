@@ -1,6 +1,6 @@
 # Frontend testing strategy
 
-Status: planned tooling for HS-003; no test runner, application or CI exists in Stage 2.
+Status: HS-003 implements Vitest/React Testing Library, axe-core foundation checks, a Playwright Chromium boot smoke, and pull-request CI. Product-flow coverage arrives with its feature tickets.
 
 | Family | Tool / evidence | Required behavior |
 |---|---|---|
