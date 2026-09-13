@@ -1,6 +1,12 @@
 # HealthSphere design system
 
-Status: visual observations and proposed implementation baseline, not executable tokens. Validate token choices during HS-005 against the preserved references and accessibility checks.
+Status: HS-005 implementation baseline, validated against the preserved references and accessibility checks on 2026-09-13.
+
+## Implemented tokens and decisions
+
+Tokens live in `src/styles/global.css` as CSS custom properties. The visual references do not expose source design tokens, so the hex values are close visual inferences: navy `#102f4a`, primary teal `#075f63`, action teal `#12a7a1`, pale aqua `#dff5f1`, canvas `#f7fbfa`, and neutral border `#cbdcdd`. Primary teal on white and white on primary teal exceed the 4.5:1 text contrast target. Spacing uses the documented 4 px base, radii are 6/10 px, controls are at least 44 px high, and the wide/form content limits are 1200/512 px.
+
+The reusable implementation includes Button, FormField, Alert, PageContainer, and AuthShell. It intentionally excludes product cards, dashboards, speculative controls, and icon dependencies. Storybook is deferred: this small primitive set is exercised by the in-app foundation showcase, RTL, axe, and Playwright, which provides enough review evidence without a second build surface.
 
 ## Observed identity
 
@@ -12,7 +18,7 @@ Authenticated Phase 1 concepts use a shared left navigation, recent metrics, a r
 
 | Area | Starting proposal | Approval/verification needed |
 |---|---|---|
-| Color roles | brand/action teal; ink navy; surface white; subtle aqua; border neutral; independent status roles | Exact hex values unresolved; measure contrast before approval |
+| Color roles | brand/action teal; ink navy; surface white; subtle aqua; border neutral; independent status roles | Implemented and contrast checked in HS-005 |
 | Typography | 16 px body baseline, 1.5 line-height; compact app headings; public hero scale separate | Font family/weights and scale unresolved; verify 200% text resizing |
 | Spacing | 4 px base with 8/12/16/24/32/48 px steps | Compare screen rhythm; values are proposals, not extracted measurements |
 | Radius | Modest consistent input/button and panel radii | Exact values unresolved; avoid excessive pill/card styling |
