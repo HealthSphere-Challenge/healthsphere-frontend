@@ -1,6 +1,6 @@
 # HealthSphere — Accessible React web client
 
-## Current status — Stage 3
+## Foundation status
 
 Foundation/governance only, delivered for review on 2026-09-13. The existing Phase 0 PDF and Phase 1 PNG are visual references, not implemented screens. No React runtime, dependency manifest, tests or CI exists yet. Documentation, repo-local skills and support templates describe future approved work; there are no application install/run commands to execute yet.
 
