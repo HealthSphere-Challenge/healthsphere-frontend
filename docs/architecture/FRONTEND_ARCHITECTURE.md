@@ -6,7 +6,7 @@ Status: approved direction; runtime and routes below are planned, not implemente
 
 Browser → healthsphere-frontend → healthsphere-backend → PostgreSQL / AI / Agent. The frontend accesses only the backend over HTTPS/REST. It owns presentation, accessible interaction and visualization, not authorization enforcement, clinical rules or predictive scoring.
 
-Target: React, strict TypeScript, Vite, React Router, TanStack Query, React Hook Form and Zod. Use accessible primitives; the primitive and chart packages, versions, package manager and exact font remain unresolved until HS-003/005. No global state library without a concrete documented need.
+Target: Node.js 24 LTS, npm with a committed lockfile, React, Vite, strict TypeScript, React Router, TanStack Query, React Hook Form and Zod. Exact package versions are selected and tested during HS-003. Use accessible primitives; the primitive/chart packages and exact font remain unresolved until HS-003/005. No global state library without a concrete documented need. See the [API consumer contract](API_CONSUMER_CONTRACT.md).
 
 ## Planned structure and dependencies
 
@@ -29,10 +29,10 @@ TanStack Query owns server state, cache invalidation and request lifecycle. Reac
 
 Only `VITE_API_BASE_URL` may address the application backend; Vite configuration is public and contains no secrets. No AI/Agent URLs or credentials in browser code. Before implementation, coordinate HS-002 request/response fixtures and error semantics with the backend. Transport should distinguish unavailable service, validation errors, authorization failures and stale data without leaking internals.
 
-Session transport, CSRF strategy, generated versus hand-maintained types, pagination and API version path are unresolved. Do not choose these implicitly in UI code. Frontend contract fixtures must pin the backend contract revision and cannot fabricate a successful risk assessment when the AI is unavailable.
+The approved API uses `/api/v1`, opaque cursor pagination, an opaque `Secure`/`HttpOnly`/`SameSite=Lax` session cookie, and session-bound CSRF for state-changing requests. Frontend begins with hand-maintained strict TypeScript types plus Zod runtime schemas; OpenAPI client generation is deferred. Frontend contract fixtures must pin the backend contract revision and cannot fabricate a successful risk assessment when the AI is unavailable.
 
 ## Product constraints
 
-One account = one health profile; no guardian/delegated or family access. English MVP. Adult and adolescent/older-adult references inform appropriate presentation, not separate applications, access rights or automatic sex-based themes. Personalization uses known data and explicit preferences; unsupported populations receive no invented assessment.
+One account = one health profile; minimum account age is 18, and younger users and guardian/delegated/family access are unsupported in the MVP. English MVP. Adolescent and older-adult references inform future/adaptive presentation, not separate applications, access rights or automatic sex-based themes. Personalization uses known data and explicit preferences; unsupported populations receive no invented assessment.
 
 Read [design system](../ux/DESIGN_SYSTEM.md), [screen inventory](../ux/SCREEN_INVENTORY.md), [responsive/accessibility](../ux/ACCESSIBILITY_AND_RESPONSIVE.md) and [testing](../testing/TESTING_STRATEGY.md) before a screen plan.
