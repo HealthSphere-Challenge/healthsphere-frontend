@@ -40,3 +40,19 @@ npm run test:e2e
 ```
 
 Browser configuration may contain only the backend API base URL. Never add AI/Agent URLs, credentials, or secrets. Use short-lived branches → PR → main, no develop; no silent merge.
+
+## HealthSphere Assistant (HS-014)
+
+Authenticated users can open `/app/assistant` to ask general health-information questions
+and reopen recent conversations. The browser calls only the backend conversation API. It
+sends message text, conversation ID, and an optional assessment ID from the dashboard's
+“Ask about this result” action; it never builds medical context or calls the Agent directly.
+
+The interface preserves answer, follow-up, abstention, and urgent states. Returned sources
+are displayed with the response, urgent content uses alert semantics, and generation is
+announced through a live status message. The composer supports Enter to send, Shift+Enter
+for a new line, a 2,000-character limit, and duplicate-submit prevention.
+
+For local testing, configure and run the backend first, then use `npm run dev`. Unit and
+schema tests use `npm test`; the mocked Chromium journey uses `npm run test:e2e`. A live
+full-stack smoke test additionally requires PostgreSQL and a configured Agent provider.

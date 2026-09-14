@@ -55,6 +55,7 @@ function CompletedResult({ assessment }: { assessment: CompletedAssessment }) {
     <p className="assessment-result__label">Experimental model score</p>
     <p className="assessment-result__score" aria-label={`Experimental model score ${score} out of 100`}>{score} <span>/ 100</span></p>
     <dl className="assessment-details"><div><dt>Model horizon</dt><dd>5 years</dd></div><div><dt>Last assessed</dt><dd><time dateTime={assessment.created_at}>{formatDate(assessment.created_at)}</time></dd></div><div><dt>Calibration</dt><dd>Not clinically calibrated</dd></div><div><dt>Data</dt><dd>Synthetic model</dd></div></dl>
+    <Link className="button button--secondary assessment-assistant-link" to={`/app/assistant?assessment=${assessment.id}`}>Ask about this result</Link>
   </div>
 }
 
