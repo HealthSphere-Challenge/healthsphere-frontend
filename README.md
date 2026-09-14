@@ -21,7 +21,7 @@ One account = one health profile; English MVP. Guardian/family/multi-profile acc
 
 ## Local configuration and delivery
 
-Requires Node.js 24 and npm 11. `.env` is ignored and must never be committed. The default same-site backend path is `/api/v1`; copy `.env.example` only when a local override is needed.
+Requires Node.js 24 and npm 11. `.env` is ignored and must never be committed. The default same-site backend path is `/api/v1`. During `npm run dev`, Vite proxies `/api` to the backend at `http://127.0.0.1:8000`, so start the backend on that address first. Copy `.env.example` only when a local override is needed.
 
 ```bash
 npm ci
