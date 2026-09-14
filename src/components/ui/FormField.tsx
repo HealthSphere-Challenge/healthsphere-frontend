@@ -1,6 +1,6 @@
 import { useId, type InputHTMLAttributes, type ReactNode } from 'react'
 
-type FormFieldProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'id'> & { label: string; error?: string; hint?: ReactNode }
+type FormFieldProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'id'> & { label: string; error?: string | undefined; hint?: ReactNode }
 
 export function FormField({ label, error, hint, className = '', ...props }: FormFieldProps) {
   const id = useId(); const hintId = hint ? `${id}-hint` : undefined; const errorId = error ? `${id}-error` : undefined

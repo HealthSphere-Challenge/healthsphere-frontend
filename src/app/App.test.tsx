@@ -5,10 +5,10 @@ import { App } from './App'
 import { AppProviders } from './AppProviders'
 import { appRoutes } from './router'
 
-describe('application foundation', () => {
+describe('HealthSphere application', () => {
   it('renders through the router and provider composition', () => {
     window.history.pushState({}, '', '/'); render(<AppProviders><App /></AppProviders>)
-    expect(screen.getByRole('heading', { level: 1, name: 'Application foundation ready' })).toBeVisible()
+    expect(screen.getByRole('heading', { level: 1, name: 'Log in to HealthSphere' })).toBeVisible()
   })
   it('renders the not-found route', () => {
     const router = createMemoryRouter(appRoutes, { initialEntries: ['/missing'] })
