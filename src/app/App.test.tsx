@@ -17,6 +17,6 @@ describe('application foundation', () => {
   })
   it('has no detectable accessibility violations', async () => {
     window.history.pushState({}, '', '/'); const { container } = render(<AppProviders><App /></AppProviders>)
-    expect((await axe.run(container, { rules: { 'color-contrast': { enabled: false } } })).violations).toEqual([])
+    expect((await axe.run(container)).violations).toEqual([])
   })
 })
