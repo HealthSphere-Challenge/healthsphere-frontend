@@ -1,0 +1,3 @@
+import { useSession } from '../features/auth/useSession'
+
+export function ProfileRoute() { const { data } = useSession(); return <main id="main-content" className="dashboard"><header className="product-heading"><div><p className="eyebrow">Your account</p><h1>Profile</h1><p>Information saved during onboarding.</p></div></header><dl className="profile-summary"><div><dt>Name</dt><dd>{data?.user.display_name}</dd></div><div><dt>Email</dt><dd>{data?.user.email}</dd></div><div><dt>Date of birth</dt><dd>{data?.profile.date_of_birth ?? 'Not provided'}</dd></div><div><dt>Height</dt><dd>{data?.profile.height_cm ? `${data.profile.height_cm} cm` : 'Not provided'}</dd></div></dl></main> }
