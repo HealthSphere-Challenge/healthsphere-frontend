@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { apiClient } from '../../lib/api'
+import { assessmentSchema } from '../assessments/api'
 
 export const metrics = ['heart_rate', 'blood_pressure', 'weight', 'blood_glucose', 'sleep_duration', 'physical_activity_duration'] as const
 export type Metric = typeof metrics[number]
@@ -9,7 +10,7 @@ export const measurementSchema = z.object({
   context: z.enum(['fasting', 'postprandial', 'random', 'unknown']).nullable(), measured_at: z.string(), recorded_at: z.string(), source: z.enum(['manual', 'derived']), note: z.string().nullable(),
 })
 const bmiSchema = z.object({ value: z.number(), unit: z.literal('kg/m2'), derived_from_measurement_id: z.uuid() })
-export const dashboardSchema = z.object({ generated_at: z.string(), latest_measurements: z.record(z.string(), z.union([measurementSchema, bmiSchema, z.null()])), latest_assessment: z.null() })
+export const dashboardSchema = z.object({ generated_at: z.string(), latest_measurements: z.record(z.string(), z.union([measurementSchema, bmiSchema, z.null()])), latest_assessment: assessmentSchema.nullable() })
 const listSchema = z.object({ items: z.array(measurementSchema), next_cursor: z.string().nullable() })
 export type Measurement = z.infer<typeof measurementSchema>
 export type Dashboard = z.infer<typeof dashboardSchema>

@@ -1,6 +1,6 @@
 # Backend API consumer contract
 
-Status: **APPROVED CONTRACT for HS-002; documentation only.** No transport, Zod schema, query, form, or screen is implemented here. Auth is **PENDING HS-006**, assessment meaning **PENDING HS-010**, and Agent behavior **PENDING HS-013**.
+Status: **APPROVED CONTRACT.** Authentication, measurements, dashboard, and assessment consumers are implemented. Agent behavior remains pending its approved implementation stage.
 
 Contract revision: `phase1-hs002-2026-09-13`. Backend Pydantic/OpenAPI is authoritative for `/api/v1`; frontend owns strict TypeScript types and Zod runtime consumer schemas. A generated OpenAPI TypeScript client is deferred.
 
@@ -71,19 +71,19 @@ Blood pressure is one paired observation. Approved metrics are `heart_rate`, `bl
 {"items": [], "next_cursor": null}
 ```
 
-### Assessment pending HS-010
+### Assessment
 
 ```json
 {
   "id": "c63f9048-9510-4eb5-8c0d-73bb5cb3fe8b",
   "status": "insufficient_data",
   "result": null,
-  "reason": {"code": "minimum_inputs_missing", "missing_fields": ["pending_hs_010"]},
+  "reason": {"code": "minimum_inputs_missing", "missing_fields": ["systolic", "diastolic"]},
   "created_at": "2026-09-13T09:05:43.000Z"
 }
 ```
 
-Assessment target, eligible population, horizon, features, minimum inputs, score semantics, calibration, labels, thresholds, and explanation method are all **PENDING HS-010**. A completed-result consumer schema must wait for those decisions.
+Completed results use target `incident_essential_hypertension_5y_v1`, a 1,825-day horizon, score type `uncalibrated_experimental_probability_estimate`, `calibrated: false`, and `data_source_type: synthetic_model`. The UI presents the value only as an experimental model score, never as a clinical probability or category. Non-completed states have no result and remain distinct from zero.
 
 ### Assistant message pending HS-013
 
