@@ -6,6 +6,7 @@ import { AppShell } from '../components/product/AppShell'
 import { DashboardRoute } from '../routes/DashboardRoute'
 import { MeasurementsRoute } from '../routes/MeasurementsRoute'
 import { ProfileRoute } from '../routes/ProfileRoute'
+import { AssistantRoute } from '../routes/AssistantRoute'
 
 export const appRoutes: RouteObject[] = [
   { path: '/', element: <Navigate to="/login" replace /> },
@@ -16,6 +17,7 @@ export const appRoutes: RouteObject[] = [
     { index: true, element: <DashboardRoute /> },
     { path: 'measurements', element: <MeasurementsRoute /> },
     { path: 'profile', element: <ProfileRoute /> },
+    { path: 'assistant', element: <AssistantRoute /> },
   ] },
   { path: '*', element: <NotFoundRoute /> },
 ]
