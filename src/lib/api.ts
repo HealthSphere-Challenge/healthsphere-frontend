@@ -15,6 +15,10 @@ export class ApiError extends Error {
 
 interface ApiClientOptions { csrfToken?: () => string | undefined; fetchImplementation?: typeof fetch }
 
+let activeCsrfToken: string | undefined
+export function setCsrfToken(token?: string) { activeCsrfToken = token }
+export function getCsrfToken() { return activeCsrfToken }
+
 export function createApiClient(options: ApiClientOptions = {}) {
   const request = async <T>(path: string, schema: z.ZodType<T>, init: RequestInit = {}): Promise<T> => {
     if (!path.startsWith('/') || path.startsWith('//')) throw new TypeError('API path must be relative')
@@ -25,6 +29,7 @@ export function createApiClient(options: ApiClientOptions = {}) {
     if (csrfToken && init.method && !['GET', 'HEAD', 'OPTIONS'].includes(init.method.toUpperCase())) headers.set('X-CSRF-Token', csrfToken)
 
     const response = await (options.fetchImplementation ?? fetch)(`${publicConfig.apiBaseUrl}${path}`, { ...init, headers, credentials: 'include' })
+    if (response.status === 204) return schema.parse(undefined)
     let body: unknown
     try { body = await response.json() } catch {
       throw new ApiError('The request failed.', response.status, 'invalid_error_response', response.headers.get('X-Request-ID'))
@@ -38,3 +43,5 @@ export function createApiClient(options: ApiClientOptions = {}) {
   }
   return { request }
 }
+
+export const apiClient = createApiClient({ csrfToken: getCsrfToken })
