@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { apiClient } from '../../lib/api'
 
-const sourceSchema = z.object({ source_id: z.string(), title: z.string(), url: z.url() })
+const sourceSchema = z.object({ source_id: z.string(), title: z.string(), url: z.url().nullable() })
 const safetySchema = z.object({ urgent: z.boolean(), reason: z.string().nullable() })
 export const messageSchema = z.object({
   id: z.uuid(), role: z.enum(['user', 'assistant']), content: z.string(),
