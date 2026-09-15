@@ -8,7 +8,7 @@ import { appRoutes } from './router'
 describe('HealthSphere application', () => {
   it('renders through the router and provider composition', () => {
     window.history.pushState({}, '', '/'); render(<AppProviders><App /></AppProviders>)
-    expect(screen.getByRole('heading', { level: 1, name: 'Log in to HealthSphere' })).toBeVisible()
+    expect(screen.getByRole('heading', { level: 1, name: /Understand your health/ })).toBeVisible()
   })
   it('renders the not-found route', () => {
     const router = createMemoryRouter(appRoutes, { initialEntries: ['/missing'] })
