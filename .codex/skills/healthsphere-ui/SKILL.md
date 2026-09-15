@@ -19,4 +19,17 @@ Use the supplied logo without redrawing it. Define one reusable brand component,
 
 Aim for a calm, credible and warm healthcare interface: strong typography, generous whitespace, a deliberate grid, restrained radius/shadow, and a small number of purposeful elements. Prefer editorial composition, photography and varied section rhythm. Avoid generic SaaS grids, floating metrics, decorative AI motifs, gradients/glass effects, fake statistics, testimonials, awards, certifications or claims.
 
+## Human-Crafted Product UI Rules
+
+- Scale headings to their informational importance; do not default to oversized marketing type.
+- Use whitespace to establish hierarchy and rhythm, never as empty premium-looking filler.
+- Vary section composition with purpose; avoid repeated alternating image/text splits and arbitrary asymmetry.
+- Prefer concrete product language to generic SaaS phrases such as “One place for,” “Built to,” or “A clear path” when they add no information.
+- Demonstrate only real HealthSphere capabilities. Never invent dashboards, scores, statistics, testimonials, badges, awards or metrics.
+- Let photography support a specific part of the product story instead of filling a decorative block.
+- Prefer typography, alignment and dividers before adding cards, pills, gradients, floating widgets, glass effects or oversized radii.
+- Maintain a consistent spacing rhythm and design adjacent sections as one continuous page.
+- Reuse actual HealthSphere patterns when they improve comprehension or continuity.
+- Give every visual element a clear informational, navigational or emotional purpose.
+
 Keep AI subordinate to the healthcare-information product. Never introduce diagnosis, treatment claims, an “AI doctor,” clinical validation, fabricated recommendations, or Low/Medium/High and Good/Bad labels for the experimental score. State that assessments are synthetic-data trained, uncalibrated, experimental and non-diagnostic wherever the context could imply more.
