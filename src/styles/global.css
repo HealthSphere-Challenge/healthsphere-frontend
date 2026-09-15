@@ -63,8 +63,8 @@ h1 { margin-block: var(--space-3); font-size: var(--text-xl); }
 /* HealthSphere product screens */
 .public-header, .onboarding-header { height: 5rem; padding-inline: clamp(1rem, 5vw, 5rem); display: flex; align-items: center; justify-content: space-between; gap: 2rem; background: white; border-bottom: 1px solid #e4eeee; }
 .public-header nav { display: flex; align-items: center; gap: 1.75rem; }
-.brand { display: inline-flex; align-items: center; gap: .65rem; color: var(--color-ink); font-size: 1.15rem; font-weight: 800; text-decoration: none; }
-.brand__mark { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--color-brand-600); color: white; font-size: 1.35rem; }
+.brand { display: inline-flex; align-items: center; min-height: 2.75rem; padding: .25rem; text-decoration: none; }
+.brand__logo { display: block; width: auto; height: 2.5rem; aspect-ratio: 3 / 1; object-fit: contain; }
 .header-action { padding: .65rem 1rem; border-radius: var(--radius-sm); background: var(--color-brand-700); color: white; text-decoration: none; font-weight: 700; }
 .auth-product { min-height: calc(100vh - 5rem); display: grid; grid-template-columns: minmax(25rem, 1.08fr) minmax(30rem, .92fr); background: white; }
 .auth-product > aside, .onboarding-layout > aside { display: grid; place-items: center; overflow: hidden; background: #def5f1; }
@@ -113,12 +113,13 @@ a.button { display: inline-flex; align-items: center; justify-content: center; t
   .auth-product > main, .onboarding-layout > main { padding: 2.25rem 1.25rem 3rem; place-items: start center; }
   .auth-form h1, .onboarding-content h1 { font-size: 2rem; }
 }
-@media (max-width: 25rem) { .public-header { padding-inline: 1rem; } .header-action { padding-inline: .7rem; } .brand { font-size: 1rem; } }
+@media (max-width: 25rem) { .public-header { padding-inline: 1rem; } .header-action { padding-inline: .7rem; } .brand__logo { height: 2rem; } }
 
 /* Authenticated application */
 .app-shell { min-height: 100vh; display: grid; grid-template-columns: 15.5rem 1fr; grid-template-rows: 4.75rem 1fr; grid-template-areas: "sidebar topbar" "sidebar main"; background: #f6faf9; }
 .app-sidebar { grid-area: sidebar; position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; padding: 1.7rem 1.25rem; background: #fff; border-right: 1px solid #dce9e7; }
-.app-sidebar .brand { padding-inline: .65rem; }
+.app-sidebar .brand { align-self: flex-start; padding-inline: .65rem; }
+.app-sidebar .brand__logo { height: 2.25rem; }
 .app-sidebar nav { display: grid; gap: .35rem; margin-top: 3rem; }
 .app-sidebar nav a { min-height: 3rem; display: flex; align-items: center; gap: .8rem; padding: .7rem .8rem; border-radius: .45rem; color: var(--color-muted); font-weight: 650; text-decoration: none; }
 .app-sidebar nav a:hover { background: var(--color-brand-50); color: var(--color-brand-700); }
@@ -184,7 +185,7 @@ a.button { display: inline-flex; align-items: center; justify-content: center; t
 .assessment-history-status { margin: 1.25rem 0 0; color: var(--color-muted); }
 @media (max-width: 64rem) { .app-shell { grid-template-columns: 12.5rem 1fr; }.metric-grid { grid-template-columns: repeat(2, 1fr); }.dashboard { width: min(100% - 2.5rem, 76rem); } }
 @media (max-width: 48rem) {
- .app-shell { display: block; padding: 4.5rem 0 4rem; }.app-sidebar { display: none; }.app-topbar { position: fixed; z-index: 5; inset: 0 0 auto; height: 4.5rem; justify-content: space-between; padding-inline: 1rem; }.mobile-brand { display: block; }.user-name { display: none; }
+ .app-shell { display: block; padding: 4.5rem 0 4rem; }.app-sidebar { display: none; }.app-topbar { position: fixed; z-index: 5; inset: 0 0 auto; height: 4.5rem; justify-content: space-between; padding-inline: 1rem; }.mobile-brand { display: block; }.mobile-brand .brand__logo { height: 2rem; }.user-name { display: none; }
  .mobile-nav { position: fixed; z-index: 5; inset: auto 0 0; height: 4rem; display: grid; grid-template-columns: repeat(4, 1fr); background: white; border-top: 1px solid #dce9e7; }.mobile-nav a { display: grid; place-items: center; color: var(--color-muted); font-size: .78rem; font-weight: 700; text-decoration: none; }.mobile-nav a.active { color: var(--color-brand-700); background: var(--color-brand-50); }
  .dashboard { width: calc(100% - 2rem); padding-block: 2rem; }.product-heading { display: grid; margin-bottom: 2rem; }.product-heading .button, .product-heading > button { width: 100%; }.metric-grid { grid-template-columns: 1fr; }.metric-card { min-height: auto; }.recent-panel { display: grid; padding: 1.5rem; }.measurement-form { padding: 1.25rem; }.measurement-fields { grid-template-columns: 1fr; }.form-actions { grid-column: auto; }.history-list article { grid-template-columns: 1fr auto; gap: .75rem; }.context-label { grid-column: 1 / -1; }.profile-summary { grid-template-columns: 1fr; }.assessment-card { grid-template-columns: 1fr; }.assessment-card__context { border-top: 1px solid #dce9e7; border-left: 0; }.assessment-details { grid-template-columns: 1fr; }.assessment-card__main > .button { width: 100%; }
 }

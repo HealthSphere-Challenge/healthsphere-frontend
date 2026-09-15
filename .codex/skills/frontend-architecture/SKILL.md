@@ -12,3 +12,5 @@ Read the active approved ticket and relevant repository instructions first. This
 ## Workflow
 
 Trace the change from route/view through feature hooks to the backend transport. Verify that no browser request or public configuration points to AI or Agent. Assign server state to TanStack Query, forms to React Hook Form/Zod and local presentation state to components. Check cache invalidation and user-cache clearing on logout. Keep primitives free of domain fetching and avoid duplicate business rules. Identify backend contract consumers before a shape change; coordinate fixture/version changes instead of masking incompatible data.
+
+Keep brand and people assets under `src/assets/brand` and `src/assets/people`. Import them from presentation components so Vite emits separate cacheable files rather than embedding them in JavaScript. Reuse one logo component across public, onboarding and authenticated shells; do not add state, packages or backend contracts for a visual refresh. Preserve width/height or aspect-ratio information to prevent layout shift.
