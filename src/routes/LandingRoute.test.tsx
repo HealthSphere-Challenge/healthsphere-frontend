@@ -19,7 +19,17 @@ describe('public landing page', () => {
   it('uses accurate safety language without clinical classifications', () => {
     renderLanding()
     expect(screen.getByText(/synthetic Synthea records, uncalibrated and not clinically validated/i)).toBeVisible()
+    expect(screen.getByText(/provides health information, not diagnosis/i)).toBeVisible()
+    expect(screen.getByText(/does not prescribe treatment/i)).toBeVisible()
     expect(document.body).not.toHaveTextContent(/risk:\s*(low|medium|high)|health score:\s*(good|bad)|AI doctor|predict your disease/i)
+  })
+
+  it('keeps the complete real product flow and truthful capabilities', () => {
+    renderLanding()
+    expect(screen.getByRole('heading', { name: 'How HealthSphere works' })).toBeVisible()
+    for (const step of ['Create your health profile', 'Track selected measurements', 'Generate an experimental assessment', 'Ask HealthSphere Assistant', 'Keep the context in view']) expect(screen.getByRole('heading', { level: 3, name: step })).toBeVisible()
+    for (const capability of ['Health overview', 'Measurements', 'Experimental assessments', 'HealthSphere Assistant']) expect(screen.getByRole('heading', { level: 3, name: capability })).toBeVisible()
+    for (const disclosure of ['Grounded Assistant', 'Privacy-conscious flow', 'Accessible by design']) expect(screen.getByText(disclosure)).toBeVisible()
   })
 
   it('closes the mobile navigation with Escape', () => {
