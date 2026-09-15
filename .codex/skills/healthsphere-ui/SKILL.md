@@ -29,6 +29,7 @@ Aim for a calm, credible and warm healthcare interface: strong typography, gener
 - Let photography support a specific part of the product story instead of filling a decorative block.
 - Prefer typography, alignment and dividers before adding cards, pills, gradients, floating widgets, glass effects or oversized radii.
 - Avoid solving every information hierarchy with tables, equal-width grids, bordered matrices or repeated divider rows. Use composition, typography, spacing, grouping and selective emphasis first. Use tables only when people genuinely need to compare structured data across rows and columns.
+- Build visual organization through a coherent alignment system, spacing rhythm, controlled content widths and intentional visual anchors. Do not add cards, borders or tables to compensate for weak composition.
 - Maintain a consistent spacing rhythm and design adjacent sections as one continuous page.
 - Reuse actual HealthSphere patterns when they improve comprehension or continuity.
 - Give every visual element a clear informational, navigational or emotional purpose.
