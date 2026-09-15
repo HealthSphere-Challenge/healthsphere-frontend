@@ -67,7 +67,12 @@ h1 { margin-block: var(--space-3); font-size: var(--text-xl); }
 .brand__logo { display: block; width: auto; height: 2.5rem; aspect-ratio: 3 / 1; object-fit: contain; }
 .header-action { padding: .65rem 1rem; border-radius: var(--radius-sm); background: var(--color-brand-700); color: white; text-decoration: none; font-weight: 700; }
 .auth-product { min-height: calc(100vh - 5rem); display: grid; grid-template-columns: minmax(25rem, 1.08fr) minmax(30rem, .92fr); background: white; }
-.auth-product > aside, .onboarding-layout > aside { display: grid; place-items: center; overflow: hidden; background: #def5f1; }
+.auth-product > aside, .onboarding-layout > aside { display: grid; place-items: center; overflow: hidden; background-color: #def5f1; }
+.auth-visual { position: relative; isolation: isolate; min-height: 38rem; align-content: end; justify-items: stretch; background-color: #d9efec; background-position: center; background-size: cover; }
+.auth-visual::after { content: ''; position: absolute; z-index: -1; inset: 35% 0 0; background: linear-gradient(180deg, transparent, rgb(5 40 55 / .78)); }
+.auth-visual__copy { width: min(32rem, calc(100% - 4rem)); margin: 0 auto clamp(2rem, 7vh, 5rem); padding: 1.5rem 1.75rem; color: white; background: rgb(16 47 74 / .92); border-left: 4px solid #7bd8ca; }
+.auth-visual__copy .eyebrow { margin: 0 0 .5rem; color: #bcefe7; }
+.auth-visual__copy > p:last-child { margin: 0; font-size: clamp(1.25rem, 2vw, 1.65rem); font-weight: 750; line-height: 1.3; }
 .auth-product > main { display: grid; place-items: center; padding: clamp(2rem, 6vw, 5rem); }
 .auth-form, .onboarding-content { width: min(100%, 29rem); }
 .auth-form h1, .onboarding-content h1 { margin: .6rem 0 1rem; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.035em; }
@@ -103,6 +108,10 @@ a.button { display: inline-flex; align-items: center; justify-content: center; t
   .public-header nav a:first-child { display: none; }
   .auth-product, .onboarding-layout { grid-template-columns: 1fr; }
   .auth-product > aside, .onboarding-layout > aside { min-height: 11rem; }
+  .auth-visual { min-height: 12rem; background-position: center 38%; }
+  .auth-visual::after { inset: 0; background: linear-gradient(90deg, rgb(5 40 55 / .84), rgb(5 40 55 / .2)); }
+  .auth-visual__copy { width: min(30rem, calc(100% - 2.5rem)); margin: 1.25rem auto; padding: 1rem 1.25rem; background: transparent; border-left-width: 3px; }
+  .auth-visual__copy > p:last-child { font-size: 1.05rem; }
   .health-art { min-height: 11rem; width: 100%; transform: none; padding: 1.5rem; justify-content: start; text-align: left; }
   .health-art__sun { width: 5rem; height: 5rem; top: 12%; right: 8%; }
   .health-art__person { width: 5rem; height: 6rem; top: 18%; left: auto; right: 23%; transform: none; }
@@ -112,6 +121,14 @@ a.button { display: inline-flex; align-items: center; justify-content: center; t
   .health-art p { font-size: 1.05rem; }
   .auth-product > main, .onboarding-layout > main { padding: 2.25rem 1.25rem 3rem; place-items: start center; }
   .auth-form h1, .onboarding-content h1 { font-size: 2rem; }
+}
+@media (min-width: 30.01rem) {
+  .auth-visual--login { background-image: url('../assets/people/adult-man-1200.webp'); background-position: center 42%; }
+  .auth-visual--register { background-image: url('../assets/people/adult-woman-1200.webp'); background-position: center 30%; }
+}
+@media (max-width: 30rem) {
+  .auth-product > .auth-visual { display: none; }
+  .auth-product > main { padding-top: 2rem; }
 }
 @media (max-width: 25rem) { .public-header { padding-inline: 1rem; } .header-action { padding-inline: .7rem; } .brand__logo { height: 2rem; } }
 
