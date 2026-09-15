@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate, type RouteObject } from 'react-router-dom'
+import { createBrowserRouter, type RouteObject } from 'react-router-dom'
 import { LoginRoute, PublicOnly, RegisterRoute, RequireSession } from '../routes/AuthRoutes'
 import { NotFoundRoute } from '../routes/NotFoundRoute'
 import { OnboardingRoute } from '../routes/OnboardingRoutes'
@@ -7,9 +7,10 @@ import { DashboardRoute } from '../routes/DashboardRoute'
 import { MeasurementsRoute } from '../routes/MeasurementsRoute'
 import { ProfileRoute } from '../routes/ProfileRoute'
 import { AssistantRoute } from '../routes/AssistantRoute'
+import { LandingRoute } from '../routes/LandingRoute'
 
 export const appRoutes: RouteObject[] = [
-  { path: '/', element: <Navigate to="/login" replace /> },
+  { path: '/', element: <LandingRoute /> },
   { path: '/login', element: <PublicOnly><LoginRoute /></PublicOnly> },
   { path: '/register', element: <PublicOnly><RegisterRoute /></PublicOnly> },
   { path: '/onboarding/:step', element: <RequireSession onboarding><OnboardingRoute /></RequireSession> },
